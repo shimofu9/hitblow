@@ -18,5 +18,8 @@ def judge(secret, guess):
 
 
 def make_secret(digits=3):
-    """重複なしの digits 桁の答えを作る。"""
-    return "".join(random.sample("0123456789", digits))
+    """数字の重複を許して、digits桁の答えを作る。"""
+    return "".join(
+        random.choice("0123456789")
+        for _ in range(digits)
+    )
