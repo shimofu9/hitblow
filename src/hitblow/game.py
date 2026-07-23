@@ -10,8 +10,16 @@
 
 from .core import judge, make_secret
 
+def play(digits, players=1):
+    """人数に応じて1人用または2人用ゲームを開始する。"""
+    if players == 1:
+        play_single(digits)
+    #elif players == 2:
+        # play_two_players(digits)
+    # else:
+        # raise ValueError("playersには1または2を指定してください。")
 
-def play(digits):
+def play_single(digits):
     secret = make_secret(digits)
     print(f"Hit & Blow（{digits}桁・重複あり）")
 
