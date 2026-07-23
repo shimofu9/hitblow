@@ -1,33 +1,23 @@
-"""ゲームの進行（入力・表示・ループ）。
-
-★ チームで足す機能は **自分の担当の場所**に書く（1機能=1ファイル）。
-   下の「ここに足す」場所は3か所（① 開始時 ② 入力コマンド ③ 勝利時）。
-   ペアごとに**別の場所**を直すので、並行作業でも衝突しない。
-   import も自分の場所の近くに書くこと（ファイル先頭にまとめない＝衝突回避）。
-"""
-
-"""ゲームの進行（入力・表示・ループ）。"""
+import math
+import time
 
 from .core import judge, make_secret
+from .time_limit import get_time_limit, timed_input
 
 def play(digits, players=1):
     """人数に応じて1人用または2人用ゲームを開始する。"""
     if players == 1:
         play_single(digits)
-    #elif players == 2:
-        # play_two_players(digits)
+    # elif players == 2:
+    #     play_two_players(digits)
     # else:
-        # raise ValueError("playersには1または2を指定してください。")
+    #     raise ValueError("playersには1または2を指定してください。")
 
 def play_single(digits):
     secret = make_secret(digits)
     print(f"Hit & Blow（{digits}桁・重複あり）")
 
     # ===== ① 開始時に足す =====
-    import math
-    import time
-
-    from .time_limit import get_time_limit, timed_input
 
     time_limit = get_time_limit(digits)
     start_time = time.monotonic()
@@ -80,3 +70,4 @@ def play_single(digits):
                 f"（答え {secret}・時間 {elapsed_time:.1f}秒）"
             )
             return
+
