@@ -119,37 +119,3 @@ def play_two_players(digits):
 
         # プレイヤーを交代する
         current_player = 1 - current_player
-
-# def play_two_players(digits):
-#     secret = make_secret(digits)
-#     print(f"Hit & Blow（{digits}桁・重複あり）")
-
-#     # ===== ① 開始時に足す =====
-
-#     tries = 0
-
-#     while True:
-
-#         guess = guess.strip()
-
-#         # ===== ② 入力コマンドに足す =====
-
-#         if len(guess) != digits or not guess.isdigit():
-#             print(f"{digits}桁の数字で入力してください。")
-#             continue
-
-#         tries += 1
-
-#         hit, blow = judge(secret, guess)
-#         print(f"  Hit={hit}  Blow={blow}")
-
-#         if hit == digits:
-#             # ===== ③ 勝利時に足す =====
-
-#             elapsed_time = time.monotonic() - start_time
-
-#             print(
-#                 f"正解！ {tries}回で当たり"
-#                 f"（答え {secret}・時間 {elapsed_time:.1f}秒）"
-#             )
-#             return
